@@ -82,7 +82,7 @@
     box-sizing: border-box;
 }
 
-html {
+php {
     scroll-behavior: smooth;
     font-size: 16px;
 }
@@ -827,7 +827,6 @@ img {
         transform: translateY(-12px);
     }
 }
-
 /* ============================================
    Impact Section
    ============================================ */
@@ -867,13 +866,13 @@ img {
 
 .impact-content {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: var(--space-lg);
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-md);
     margin-top: var(--space-2xl);
 }
 
 .impact-card {
-    padding: var(--space-xl);
+    padding: var(--space-lg);
     background: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.2);
@@ -888,12 +887,12 @@ img {
 }
 
 .impact-icon {
-    width: 70px;
-    height: 70px;
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
     overflow: hidden;
-    margin: 0 auto var(--space-md);
-    border: 3px solid rgba(255, 255, 255, 0.3);
+    margin: 0 auto var(--space-sm);
+    border: 2px solid rgba(255, 255, 255, 0.3);
 }
 
 .impact-icon img {
@@ -904,23 +903,23 @@ img {
 
 .impact-number {
     font-family: var(--font-display);
-    font-size: 4rem;
-    font-weight: 700;
+    font-size: 0.875rem;
+    font-weight: 5;
     color: white;
-    margin-bottom: var(--space-md);
+    margin-bottom: var(--space-sm);
     text-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
 }
 
 .impact-text h3 {
-    font-size: 1.25rem;
-    margin-bottom: var(--space-sm);
+    font-size: 1rem;
+    margin-bottom: var(--space-xs);
     color: white;
 }
 
 .impact-text p {
     color: rgba(255, 255, 255, 0.8);
-    font-size: 0.95rem;
-    line-height: 1.6;
+    font-size: 0.8rem;
+    line-height: 1.5;
 }
 
 /* ============================================

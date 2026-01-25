@@ -1,5 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE php>
+<php lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -44,13 +44,13 @@
             <div class="water-ripple ripple-3"></div>
         </div>
         <div class="hero-content">
-            <span class="hero-badge">🌊 Offline Performance Marketing</span>
+            <span class="hero-badge">🌊 Free Drinking Water. Real Brand Reach.</span>
             <h1 class="hero-title">
                 <span class="title-line">Free Drinking Water.</span>
                 <span class="title-line accent">Real Brand Reach.</span>
             </h1>
             <p class="hero-description">
-                We turn everyday drinking water into a powerful offline performance marketing channel.
+                We turn everyday drinking water into a powerful offline performance marketing channel.<br/>
                 Your brand doesn’t just get seen — it gets remembered, scanned, and acted upon.
             </p>
             <div class="hero-cta">
@@ -115,27 +115,25 @@
         </div>
     </section>
 
-    <!-- Features Section -->
+   <!-- Features Section -->
 <section id="features" class="features">
     <div class="container">
         <div class="section-header center">
-            <span class="section-tag">Why Choose Muftwater</span>
-            <h2 class="section-title">Free Water. Real Impact.</h2>
-            <p class="section-subtitle">
-                Muftwater delivers clean drinking water at zero cost — powered by responsible brands and driven by purpose.
-            </p>
+            <span class="section-tag">🧴 OUR ADVERTISING FORMATS</span>
+            <h2 class="section-title">Our Advertising Formats</h2>
         </div>
 
         <div class="features-grid">
             <!-- Feature 1 -->
             <div class="feature-card" data-delay="0">
                 <div class="feature-image">
-                    <img src="assets/images/sam.jpeg" alt="Free drinking water distribution">
+                    <img src="assets\images\Water Kiosks & Carts.png" alt="Free drinking water distribution">
                 </div>
                 <div class="feature-content">
-                    <h3>Absolutely Free</h3>
+                    <h3>🚰 Water Kiosks & Carts</h3>
                     <p>
-                        Our water is always 100% free. Advertising partners sponsor the bottles so people never pay for hydration.
+                        Best for monthly campaigns and continuous visibility.<br/>
+                        Ideal for coaching institutes, EdTech, hospitals, and local brands.
                     </p>
                 </div>
             </div>
@@ -143,12 +141,12 @@
             <!-- Feature 2 -->
             <div class="feature-card" data-delay="100">
                 <div class="feature-image">
-                    <img src="assets/images/pure-water.png" alt="Pure drinking water">
+                    <img src="assets/images/disposeble.png" alt="Pure drinking water">
                 </div>
                 <div class="feature-content">
-                    <h3>Pure & Safe Water</h3>
+                    <h3>🧃 Disposable Water Bottles</h3>
                     <p>
-                        Every bottle meets strict quality standards, ensuring clean, safe, and refreshing drinking water.
+                        Perfect for events, exams, marathons, and one-day activations.
                     </p>
                 </div>
             </div>
@@ -156,12 +154,12 @@
             <!-- Feature 3 -->
             <div class="feature-card" data-delay="200">
                 <div class="feature-image">
-                    <img src="assets/images/eco-friendly.png" alt="Eco-friendly water bottles">
+                    <img src="assets/images/perimun bottles.png" alt="Eco-friendly water bottles">
                 </div>
                 <div class="feature-content">
-                    <h3>Eco-Conscious</h3>
+                    <h3>🥤 Premium Bottles (Aluminum / Carton)</h3>
                     <p>
-                        We promote sustainable packaging and responsible consumption to reduce plastic waste.
+                        High-impact, take-home branding for corporates and premium campaigns.
                     </p>
                 </div>
             </div>
@@ -169,19 +167,18 @@
             <!-- Feature 4 -->
             <div class="feature-card" data-delay="300">
                 <div class="feature-image">
-                    <img src="assets/images/community-impact.png" alt="Community water support">
+                    <img src="assets/images/qr.png" alt="Community water support">
                 </div>
                 <div class="feature-content">
-                    <h3>Community Impact</h3>
+                    <h3>All formats include</h3>
                     <p>
-                        Each bottle supports water access initiatives, helping communities where clean water is scarce.
+                        Brand placement + QR engagement + reporting.
                     </p>
                 </div>
             </div>
         </div>
     </div>
 </section>
-
 
     <!-- (Distribute section moved to separate page) -->
 
@@ -194,7 +191,7 @@
             </div>
             <div class="gallery-grid">
                 <div class="gallery-item large">
-                    <img src="https://images.unsplash.com/photo-1541544741670-3ed26238f640?w=800&h=600&fit=crop" alt="Water distribution event">
+<img src="https://images.unsplash.com/photo-1593113598332-cd288d649433?auto=format&fit=crop&w=800&h=600&q=80" alt="Free Drinking Water Distribution">
                     <div class="gallery-overlay">
                         <span>Community Distribution</span>
                     </div>
@@ -225,33 +222,9 @@
                 </div>
             </div>
         </div>
-    </section>
 
-    <!-- Impact Section -->
-    <section id="impact" class="impact">
-        <div class="container">
-            <div class="section-header center">
-                <span class="section-tag">Partnership</span>
-                <h2 class="section-title">Partnering for Global Change</h2>
-                <p class="section-subtitle">
-                    We work with WaterAid International to fund sustainable water projects in communities that need it most.
-                </p>
-            </div>
-            <div class="impact-content">
-                <div class="impact-card">
-                    <div class="impact-icon">
-                        <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=100&h=100&fit=crop" alt="Bottles">
-                    </div>
-                    <div class="impact-number">150</div>
-                    <div class="impact-text">
-                        <h3>Bottles = 1 Life</h3>
-                        <p>Every 150 bottles of Muftwater provides one person with clean water for life.</p>
-                    </div>
-                </div>
-                <div class="impact-card">
-                    <div class="impact-icon">
-                        <img src="https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?w=100&h=100&fit=crop" alt="Donation">
-                    </div>
+    </section>
+     <!-- </div>
                     <div class="impact-number">10¢</div>
                     <div class="impact-text">
                         <h3>Per Bottle Donated</h3>
@@ -271,8 +244,61 @@
             </div>
         </div>
         <div class="impact-bg-pattern"></div>
+    </section> -->
+ <!-- Impact Section -->
+    <section id="impact" class="impact">
+        <div class="container">
+            <div class="section-header center">
+                <span class="section-tag">📢 HOW IT WORKS</span>
+                <h2 class="section-title">Simple. Measurable. Effective.</h2>
+            </div>
+            <div class="impact-content">
+                <div class="impact-card">
+                    <div class="impact-icon">
+<img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=100&h=100&fit=crop" alt="High Footfall Public Location">
+                    </div>
+                    <div class="impact-number">1️⃣</div>
+                    <div class="impact-text">
+                        <h3>We set up Muft Water points</h3>
+                        <p>At high-footfall locations where your target audience already exists.</p>
+                    </div>
+                </div>
+                <div class="impact-card">
+                    <div class="impact-icon">
+<img src="https://images.unsplash.com/photo-1520975916090-3105956dac38?auto=format&fit=crop&w=100&h=100&q=80" alt="Branding on Bottles and Kiosks">
+                    </div>
+                    <div class="impact-number">2️⃣</div>
+                    <div class="impact-text">
+                        <h3>Your brand appears on bottles & kiosks</h3>
+                        <p>Clear branding, strong messaging, and a QR-based call to action.</p>
+                    </div>
+                </div>
+                <div class="impact-card">
+                    <div class="impact-icon">
+<img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?w=100&h=100&fit=crop" alt="Mobile App Engagement">
+                    </div>
+                    <div class="impact-number">3️⃣</div>
+                    <div class="impact-text">
+                        <h3>People scan & engage</h3>
+                        <p>Users scan the QR to get offers, register, download apps, or connect on WhatsApp.</p>
+                    </div>
+                </div>
+                <div class="impact-card">
+                    <div class="impact-icon">
+<img src="https://images.unsplash.com/photo-1543286386-713bdd548da4?w=100&h=100&fit=crop" alt="Data Reports and Growth">
+                    </div>
+                     <div class="impact-number">4️⃣</div>
+                    <div class="impact-text">
+                        <h3>You get real results</h3>
+                        <p>Daily reports showing impressions, scans, leads, and cost per result.</p>
+                    </div>
+                </div> 
+            </div> 
+        </div>
+        <div class="impact-bg-pattern"></div>
     </section>
 
+                   
     <!-- Sustainability Section -->
     <section id="sustainability" class="sustainability">
         <div class="container">
@@ -295,12 +321,21 @@
                     </div>
                 </div>
                 <div class="sustainability-text">
-                    <span class="section-tag">Sustainability</span>
+                  <!--   <span class="section-tag">Sustainability</span>
                     <h2 class="section-title">Never Plastic. Always Planet-First.</h2>
                     <p>
                         We made a commitment from day one: no plastic bottles, ever. Our aluminum bottles 
                         are infinitely recyclable. Our paper cartons are made from sustainable forests. 
                         And glass bottles are on the way.
+                    </p> -->
+                      <span class="section-tag">🌊 WHAT IS MUFT WATER?</span>
+                    <h6 class="section-title">Water that works for people. Media that works for brands.</h6>
+                    <p>
+                        Muft Water provides free drinking water through kiosks, carts, and bottles placed at high-footfall locations like coaching hubs, exam centers, events, hospitals, and public spaces.
+                        While people get free, clean water — brands get guaranteed physical reach, engagement, and leads.
+
+                        <strong>This is not charity.<br/>
+                        This is performance marketing in the real world.</strong>
                     </p>
                     <ul class="eco-features">
                         <li>
@@ -488,4 +523,4 @@
 
     <script src="script.js"></script>
 </body>
-</html>
+</php>
