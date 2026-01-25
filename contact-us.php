@@ -116,7 +116,7 @@
     <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-container">
-            <a href="index.html#home" class="logo">
+            <a href="index.php#home" class="logo">
                 <svg class="logo-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <circle cx="20" cy="20" r="18" stroke="currentColor" stroke-width="2"/>
                     <path d="M20 8C20 8 12 16 12 22C12 26.4183 15.5817 30 20 30C24.4183 30 28 26.4183 28 22C28 16 20 8 20 8Z" fill="currentColor"/>
@@ -124,13 +124,13 @@
                 <span>Muftwater</span>
             </a>
             <ul class="nav-links">
-                <li><a href="index.html#home">Home</a></li>
-                <li><a href="distribute.html">Distribute</a></li>
-                                <li><a href="index.html#impact">Impact</a></li>
-                <li><a href="advertise.html">Advertise</a></li>
-                <li><a href="contact-us.html" class="active">Contact</a></li>
+                <li><a href="index.php#home">Home</a></li>
+                <li><a href="distribute.php">Distribute</a></li>
+                                <li><a href="index.php#impact">Impact</a></li>
+                <li><a href="advertise.php">Advertise</a></li>
+                <li><a href="contact-us.php" class="active">Contact</a></li>
             </ul>
-            <a href="index.html#subscribe" class="nav-cta">Get a quote</a>
+            <a href="index.php#subscribe" class="nav-cta">Get a quote</a>
             <button class="mobile-menu-btn" aria-label="Toggle menu">
                 <span></span>
                 <span></span>
@@ -145,7 +145,7 @@
         <div class="container">
             <div class="adv-hero-content">
                 <nav class="breadcrumb">
-                    <a href="index.html">Home</a>
+                    <a href="index.php">Home</a>
                     <span>/</span>
                     <span>Contact Us</span>
                 </nav>
