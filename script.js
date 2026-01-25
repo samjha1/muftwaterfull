@@ -233,7 +233,7 @@ function initMobileMenu() {
             if (!mobileMenu) {
                 mobileMenu = document.createElement('div');
                 mobileMenu.className = 'mobile-menu';
-                mobileMenu.innerHTML = `
+                mobileMenu.innerphp = `
                     <ul>
                         <li><a href="#home">Home</a></li>
                         <li><a href="#mission">Mission</a></li>

@@ -35,7 +35,7 @@ function sanitizeInput($data) {
     global $conn;
     $data = trim($data);
     $data = stripslashes($data);
-    $data = htmlspecialchars($data);
+    $data = phpspecialchars($data);
     $data = $conn->real_escape_string($data);
     return $data;
 }
