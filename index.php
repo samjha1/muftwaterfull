@@ -1,5 +1,5 @@
-<!DOCTYPE php>
-<php lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -255,9 +255,9 @@
             <div class="impact-content">
                 <div class="impact-card">
                     <div class="impact-icon">
-<img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=100&h=100&fit=crop" alt="High Footfall Public Location">
+                        <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=100&h=100&fit=crop" alt="High Footfall Public Location">
                     </div>
-                    <div class="impact-number">1️⃣</div>
+                    <div class="impact-number"></div>
                     <div class="impact-text">
                         <h3>We set up Muft Water points</h3>
                         <p>At high-footfall locations where your target audience already exists.</p>
@@ -267,7 +267,7 @@
                     <div class="impact-icon">
 <img src="https://images.unsplash.com/photo-1520975916090-3105956dac38?auto=format&fit=crop&w=100&h=100&q=80" alt="Branding on Bottles and Kiosks">
                     </div>
-                    <div class="impact-number">2️⃣</div>
+                    <div class="impact-number"></div>
                     <div class="impact-text">
                         <h3>Your brand appears on bottles & kiosks</h3>
                         <p>Clear branding, strong messaging, and a QR-based call to action.</p>
@@ -277,7 +277,7 @@
                     <div class="impact-icon">
 <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?w=100&h=100&fit=crop" alt="Mobile App Engagement">
                     </div>
-                    <div class="impact-number">3️⃣</div>
+                    <div class="impact-number"></div>
                     <div class="impact-text">
                         <h3>People scan & engage</h3>
                         <p>Users scan the QR to get offers, register, download apps, or connect on WhatsApp.</p>
@@ -287,7 +287,7 @@
                     <div class="impact-icon">
 <img src="https://images.unsplash.com/photo-1543286386-713bdd548da4?w=100&h=100&fit=crop" alt="Data Reports and Growth">
                     </div>
-                     <div class="impact-number">4️⃣</div>
+                     <div class="impact-number"></div>
                     <div class="impact-text">
                         <h3>You get real results</h3>
                         <p>Daily reports showing impressions, scans, leads, and cost per result.</p>
@@ -297,7 +297,7 @@
         </div>
         <div class="impact-bg-pattern"></div>
     </section>
- 
+
                    
     <!-- Sustainability Section -->
     <section id="sustainability" class="sustainability">
@@ -305,7 +305,7 @@
             <div class="sustainability-content">
                 <div class="sustainability-visual">
                     <div class="sustainability-image">
-                        <img src="assets/images/WhatsApp Image 2026-01-28 at 2.16.59 PM.jpeg  " 
+                        <img src="assets/images/WhatsApp Image 2026-01-28 at 2.16.59 PM.jpeg" 
                              alt="Eco-friendly water bottles"
                              class="eco-main-image">
                     </div>
@@ -508,9 +508,7 @@
         </div>
     </section>
 
-    <!-- Footer -->
-
-    <!-- Success Modal -->
+        <!-- Success Modal -->
     <div class="modal" id="successModal">
         <div class="modal-content">
             <div class="modal-icon">✓</div>
@@ -519,8 +517,28 @@
             <button class="btn btn-primary" onclick="closeModal()">Got it!</button>
         </div>
     </div>
-<?php include 'footer.php'; ?>
+
+        <!-- Success Modal -->
+    <div class="modal" id="successModal">
+        <div class="modal-content">
+            <div class="modal-icon">✓</div>
+            <h3>You're on the list!</h3>
+            <p>We'll notify you when Muftwater is available in your area.</p>
+            <button class="btn btn-primary" onclick="closeModal()">Got it!</button>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div id="footer"></div>
+
+    <script>
+      fetch("footer.php")
+        .then(response => response.text())
+        .then(html => {
+          document.getElementById("footer").innerHTML = html;
+        });
+    </script>
 
     <script src="script.js"></script>
 </body>
-</php>
+</html>
