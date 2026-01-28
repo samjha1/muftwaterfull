@@ -217,10 +217,13 @@
     transform: translateY(-5px);
 }
 
+
 .stat-icon {
-    font-size: 2.5rem;
-    margin-bottom: var(--space-sm);
-}
+      font-size: 8rem;
+      color: white;
+      margin-bottom: var(--space-sm);
+      font-weight: bold;
+    }
 
 .stat-value {
     font-family: var(--font-display);

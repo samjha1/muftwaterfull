@@ -60,7 +60,7 @@
                 </a>
             </div>
             <div class="adv-hero-image">
-                <img src="assets/images/maxresdefault.jpg" alt="Place Your Ad Here - Water Bottle">
+                <img src="assets/images/WhatsApp Image 2026-01-28 at 2.18.14 PM.jpeg" alt="Place Your Ad Here - Water Bottle">
             </div>
         </div>
     </section>
@@ -141,8 +141,8 @@
                     <div class="stat-label">More impressions than direct mail</div>
                 </div>
                 <div class="stat-card">
-                    <div class="stat-icon">💰</div>
-                    <div class="stat-value">$2.50</div>
+                    <div class="stat-icon" style="color:white; font-size:2.5rem;">₹</div>
+                    <div class="stat-value">₹2.50</div>
                     <div class="stat-label">Cheaper per ten impressions than direct mail</div>
                 </div>
                 <div class="stat-card">
