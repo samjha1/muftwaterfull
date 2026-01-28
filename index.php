@@ -23,7 +23,7 @@
             <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
                 <li><a href="advertise.php">Advertise</a></li>
-                                <li><a href="index.php#impact">Impact</a></li>
+                <li><a href="index.php#impact">Impact</a></li>
                 <li><a href="distribute.php">Distribute</a></li>
                 <li><a href="contact-us.php">Contact</a></li>
             </ul>
@@ -297,7 +297,7 @@
         </div>
         <div class="impact-bg-pattern"></div>
     </section>
-
+ 
                    
     <!-- Sustainability Section -->
     <section id="sustainability" class="sustainability">
@@ -305,7 +305,7 @@
             <div class="sustainability-content">
                 <div class="sustainability-visual">
                     <div class="sustainability-image">
-                        <img src="https://images.unsplash.com/photo-1567095761054-7a02e69e5c43?w=600&h=500&fit=crop" 
+                        <img src="assets/images/WhatsApp Image 2026-01-28 at 2.16.59 PM.jpeg  " 
                              alt="Eco-friendly water bottles"
                              class="eco-main-image">
                     </div>

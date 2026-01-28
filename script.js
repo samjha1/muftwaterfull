@@ -2,6 +2,7 @@
  * AqwaReach - Main JavaScript
  * Handles animations, interactions, and form submissions
  */
+console.log("script.js loaded");
 
 document.addEventListener('DOMContentLoaded', () => {
     initNavbar();
@@ -218,120 +219,145 @@ document.addEventListener('keydown', (e) => {
 /**
  * Mobile menu toggle
  */
+// function initMobileMenu() {
+//     const menuBtn = document.querySelector('.mobile-menu-btn');
+//     const navLinks = document.querySelector('.nav-links');
+//     const navbar = document.querySelector('.navbar');
+    
+//     if (menuBtn) {
+//         menuBtn.addEventListener('click', () => {
+//             menuBtn.classList.toggle('active');
+            
+//             // Create mobile menu if it doesn't exist
+//             let mobileMenu = document.querySelector('.mobile-menu');
+            
+//             if (!mobileMenu) {
+//                 mobileMenu = document.createElement('div');
+//                 mobileMenu.className = 'mobile-menu';
+//                 // mobileMenu.innerphp = `
+//                 mobileMenu.innerHTML = `
+
+//                     <ul>
+//                         <li><a href="#home">Home</a></li>
+//                         <li><a href="#mission">Mission</a></li>
+//                         <li><a href="#impact">Impact</a></li>
+//                         <li><a href="#advertise">Advertise</a></li>
+//                         <li><a href="#contact">Contact</a></li>
+//                         <li><a href="#subscribe" class="mobile-cta">Get a quote</a></li>
+//                     </ul>
+//                 `;
+                
+//                 // Add styles dynamically
+//                 const style = document.createElement('style');
+//                 style.textContent = `
+//                     .mobile-menu {
+//                         position: fixed;
+//                         top: 75px;
+//                         left: 0;
+//                         right: 0;
+//                         background: rgba(255, 255, 255, 0.98);
+//                         backdrop-filter: blur(20px);
+//                         -webkit-backdrop-filter: blur(20px);
+//                         padding: 1.5rem 2rem 2rem;
+//                         border-bottom: 1px solid #e2e8f0;
+//                         box-shadow: 0 20px 60px rgba(0, 119, 182, 0.15);
+//                         transform: translateY(-100%);
+//                         opacity: 0;
+//                         visibility: hidden;
+//                         transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+//                         z-index: 999;
+//                     }
+//                     .mobile-menu.active {
+//                         transform: translateY(0);
+//                         opacity: 1;
+//                         visibility: visible;
+//                     }
+//                     .mobile-menu ul {
+//                         display: flex;
+//                         flex-direction: column;
+//                         gap: 0.5rem;
+//                         list-style: none;
+//                         padding: 0;
+//                         margin: 0;
+//                     }
+//                     .mobile-menu a {
+//                         display: block;
+//                         padding: 1rem 1.25rem;
+//                         color: #4a5568;
+//                         font-size: 1.05rem;
+//                         font-weight: 500;
+//                         text-decoration: none;
+//                         border-radius: 12px;
+//                         transition: all 0.3s ease;
+//                     }
+//                     .mobile-menu a:hover {
+//                         background: #e8f4f8;
+//                         color: #0077b6;
+//                     }
+//                     .mobile-menu .mobile-cta {
+//                         background: linear-gradient(135deg, #0096c7, #00b4d8, #48cae4);
+//                         color: white;
+//                         text-align: center;
+//                         font-weight: 600;
+//                         margin-top: 0.75rem;
+//                         box-shadow: 0 8px 30px rgba(0, 150, 199, 0.4);
+//                     }
+//                     .mobile-menu .mobile-cta:hover {
+//                         background: linear-gradient(135deg, #0077b6, #0096c7, #00b4d8);
+//                     }
+//                     .mobile-menu-btn.active span:nth-child(1) {
+//                         transform: rotate(45deg) translate(6px, 6px);
+//                     }
+//                     .mobile-menu-btn.active span:nth-child(2) {
+//                         opacity: 0;
+//                     }
+//                     .mobile-menu-btn.active span:nth-child(3) {
+//                         transform: rotate(-45deg) translate(6px, -6px);
+//                     }
+//                 `;
+//                 document.head.appendChild(style);
+//                 navbar.after(mobileMenu);
+                
+//                 // Close menu on link click
+//                 mobileMenu.querySelectorAll('a').forEach(link => {
+//                     link.addEventListener('click', () => {
+//                         mobileMenu.classList.remove('active');
+//                         menuBtn.classList.remove('active');
+//                     });
+//                 });
+//             }
+            
+//             mobileMenu.classList.toggle('active');
+//         });
+//     }
+// }
+
+// /**
+//  * Smooth scroll for anchor links
+//  */
+
+
 function initMobileMenu() {
     const menuBtn = document.querySelector('.mobile-menu-btn');
     const navLinks = document.querySelector('.nav-links');
-    const navbar = document.querySelector('.navbar');
-    
-    if (menuBtn) {
-        menuBtn.addEventListener('click', () => {
-            menuBtn.classList.toggle('active');
-            
-            // Create mobile menu if it doesn't exist
-            let mobileMenu = document.querySelector('.mobile-menu');
-            
-            if (!mobileMenu) {
-                mobileMenu = document.createElement('div');
-                mobileMenu.className = 'mobile-menu';
-                mobileMenu.innerphp = `
-                    <ul>
-                        <li><a href="#home">Home</a></li>
-                        <li><a href="#mission">Mission</a></li>
-                        <li><a href="#impact">Impact</a></li>
-                        <li><a href="#advertise">Advertise</a></li>
-                        <li><a href="#contact">Contact</a></li>
-                        <li><a href="#subscribe" class="mobile-cta">Get a quote</a></li>
-                    </ul>
-                `;
-                
-                // Add styles dynamically
-                const style = document.createElement('style');
-                style.textContent = `
-                    .mobile-menu {
-                        position: fixed;
-                        top: 75px;
-                        left: 0;
-                        right: 0;
-                        background: rgba(255, 255, 255, 0.98);
-                        backdrop-filter: blur(20px);
-                        -webkit-backdrop-filter: blur(20px);
-                        padding: 1.5rem 2rem 2rem;
-                        border-bottom: 1px solid #e2e8f0;
-                        box-shadow: 0 20px 60px rgba(0, 119, 182, 0.15);
-                        transform: translateY(-100%);
-                        opacity: 0;
-                        visibility: hidden;
-                        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-                        z-index: 999;
-                    }
-                    .mobile-menu.active {
-                        transform: translateY(0);
-                        opacity: 1;
-                        visibility: visible;
-                    }
-                    .mobile-menu ul {
-                        display: flex;
-                        flex-direction: column;
-                        gap: 0.5rem;
-                        list-style: none;
-                        padding: 0;
-                        margin: 0;
-                    }
-                    .mobile-menu a {
-                        display: block;
-                        padding: 1rem 1.25rem;
-                        color: #4a5568;
-                        font-size: 1.05rem;
-                        font-weight: 500;
-                        text-decoration: none;
-                        border-radius: 12px;
-                        transition: all 0.3s ease;
-                    }
-                    .mobile-menu a:hover {
-                        background: #e8f4f8;
-                        color: #0077b6;
-                    }
-                    .mobile-menu .mobile-cta {
-                        background: linear-gradient(135deg, #0096c7, #00b4d8, #48cae4);
-                        color: white;
-                        text-align: center;
-                        font-weight: 600;
-                        margin-top: 0.75rem;
-                        box-shadow: 0 8px 30px rgba(0, 150, 199, 0.4);
-                    }
-                    .mobile-menu .mobile-cta:hover {
-                        background: linear-gradient(135deg, #0077b6, #0096c7, #00b4d8);
-                    }
-                    .mobile-menu-btn.active span:nth-child(1) {
-                        transform: rotate(45deg) translate(6px, 6px);
-                    }
-                    .mobile-menu-btn.active span:nth-child(2) {
-                        opacity: 0;
-                    }
-                    .mobile-menu-btn.active span:nth-child(3) {
-                        transform: rotate(-45deg) translate(6px, -6px);
-                    }
-                `;
-                document.head.appendChild(style);
-                navbar.after(mobileMenu);
-                
-                // Close menu on link click
-                mobileMenu.querySelectorAll('a').forEach(link => {
-                    link.addEventListener('click', () => {
-                        mobileMenu.classList.remove('active');
-                        menuBtn.classList.remove('active');
-                    });
-                });
-            }
-            
-            mobileMenu.classList.toggle('active');
-        });
-    }
+
+    if (!menuBtn || !navLinks) return;
+
+    // Toggle nav visibility on mobile
+    menuBtn.addEventListener('click', () => {
+        menuBtn.classList.toggle('active');
+        navLinks.classList.toggle('active');
+    });
+
+    // Reset state when resizing back to desktop
+    window.addEventListener('resize', () => {
+        if (window.innerWidth > 768) {
+            navLinks.classList.remove('active');
+            menuBtn.classList.remove('active');
+        }
+    });
 }
 
-/**
- * Smooth scroll for anchor links
- */
 function initSmoothScroll() {
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
