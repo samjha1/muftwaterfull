@@ -1,5 +1,7 @@
-<!DOCTYPE php>
-<php lang="en">
+<!-- <!DOCTYPE php> -->
+<!DOCTYPE html>
+<!-- <php lang="en"> -->
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -23,10 +25,9 @@
             </a>
             <ul class="nav-links">
                 <li><a href="index.php">Home</a></li>
-                                <li><a href="advertise.php" class="active">Advertise</a></li>
+                <li><a href="advertise.php" class="active">Advertise</a></li>
                 <li><a href="index.php#impact">Impact</a></li>
-                                <li><a href="distribute.php">Distribute</a></li>
-
+                <li><a href="distribute.php">Distribute</a></li>
                 <li><a href="contact-us.php">Contact</a></li>
             </ul>
             <a href="#quote" class="nav-cta">Get a Quote</a>
@@ -426,5 +427,6 @@
         });
     </script>
 </body>
-</php>
+<!-- </php> -->
+</html>
 

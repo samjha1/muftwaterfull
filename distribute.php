@@ -1,5 +1,7 @@
-<!DOCTYPE php>
-<php lang="en">
+<!-- <!DOCTYPE php> -->
+<!DOCTYPE html>
+<!-- <php lang="en"> -->
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -363,6 +365,24 @@
             .distribute-hero {
                 padding-top: 5.5rem;
             }
+            .distribute-hero .container {
+                grid-template-columns: minmax(0, 1fr);
+                gap: 2rem;
+            }
+            .distribute-hero-visual {
+                width: 100%;
+            }
+            .distribute-hero-card {
+                max-width: 360px;
+                margin: 0 auto;
+                text-align: center;
+            }
+            .distribute-hero-badges {
+                grid-template-columns: minmax(0, 1fr);
+            }
+            .distribute-hero-badge {
+                align-items: flex-start;
+            }
             .distribute-hero-image {
                 width: 200px;
                 height: 200px;
@@ -403,9 +423,9 @@
             </a>
             <ul class="nav-links">
                 <li><a href="index.php#home">Home</a></li>
-                <li><a href="distribute.php" class="active">Distribute</a></li>
-                <li><a href="index.php#impact">Impact</a></li>
                 <li><a href="advertise.php">Advertise</a></li>
+                <li><a href="index.php#impact">Impact</a></li>
+                 <li><a href="distribute.php" class="active">Distribute</a></li>
                 <li><a href="contact-us.php">Contact</a></li>
             </ul>
             <a href="index.php#subscribe" class="nav-cta">Get Free Water</a>
@@ -652,5 +672,6 @@
         });
     </script>
 </body>
-</php>
+<!-- </php> -->
+</html>
 

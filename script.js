@@ -349,14 +349,25 @@ function initMobileMenu() {
     if (!mobileMenu) {
         mobileMenu = document.createElement('div');
         mobileMenu.className = 'mobile-menu';
+        // mobileMenu.innerHTML = `
+        //     <ul>
+        //         <li><a href="#home">Home</a></li>
+        //         <li><a href="#impact">Impact</a></li>
+        //         <li><a href="#advertise">Advertise</a></li>
+        //         <li><a href="distribute.php">Distribute</a></li>
+        //         <li><a href="contact-us.php">Contact</a></li>
+        //         <li><a href="#subscribe" class="mobile-cta">Get a quote</a></li>
+        //     </ul>
+        // `;
+        // Use full URLs so navigation works correctly from all pages
         mobileMenu.innerHTML = `
             <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#impact">Impact</a></li>
-                <li><a href="#advertise">Advertise</a></li>
+                <li><a href="index.php#home">Home</a></li>
+                <li><a href="index.php#impact">Impact</a></li>
+                <li><a href="index.php#advertise">Advertise</a></li>
                 <li><a href="distribute.php">Distribute</a></li>
                 <li><a href="contact-us.php">Contact</a></li>
-                <li><a href="#subscribe" class="mobile-cta">Get a quote</a></li>
+                <li><a href="index.php#subscribe" class="mobile-cta">Get a quote</a></li>
             </ul>
         `;
          //Add styles dynamically
