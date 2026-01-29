@@ -141,7 +141,8 @@
                     <div class="stat-label">More impressions than direct mail</div>
                 </div>
                 <div class="stat-card">
-                    <div class="stat-icon" style="color:white; font-size:2.5rem;">₹</div>
+                    <!-- <div class="stat-icon" style="color:white; font-size:2.5rem;">₹</div> -->
+                     <div class="stat-icon">₹</div>
                     <div class="stat-value">₹2.50</div>
                     <div class="stat-label">Cheaper per ten impressions than direct mail</div>
                 </div>

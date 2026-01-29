@@ -5,38 +5,42 @@ $username = "root"; // Change this to your database username
 $password = ""; // Change this to your database password
 $dbname = "aqwareach"; // Change this to your database name
 
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
+// NOTE:
+// - This file should NEVER echo/die(), because it's included by JSON endpoints.
+// - Endpoints should check $conn and return their own JSON error response.
+$conn = null;
+$db_error = null;
 
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
+mysqli_report(MYSQLI_REPORT_OFF);
 
-// Create table if it doesn't exist
-$sql = "CREATE TABLE IF NOT EXISTS quote_requests (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    full_name VARCHAR(100) NOT NULL,
-    email VARCHAR(100) NOT NULL,
-    phone VARCHAR(20),
-    company VARCHAR(100) NOT NULL,
-    business_type VARCHAR(50),
-    advertise TEXT,
-    budget VARCHAR(20),
-    message TEXT,
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-)";
+// Connect to MySQL server (without selecting DB first, so we can create/select it)
+$tmp = @new mysqli($servername, $username, $password);
+if ($tmp->connect_error) {
+    $db_error = "Connection failed: " . $tmp->connect_error;
+} else {
+    $tmp->set_charset('utf8mb4');
 
-if (!$conn->query($sql)) {
-    echo "Error creating table: " . $conn->error;
+    // Ensure database exists (works well for local XAMPP setups)
+    if (@$tmp->query("CREATE DATABASE IF NOT EXISTS `$dbname` CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci") === false) {
+        $db_error = "Database error: " . $tmp->error;
+    } elseif (@$tmp->select_db($dbname) === false) {
+        $db_error = "Database error: " . $tmp->error;
+    } else {
+        $conn = $tmp;
+    }
 }
 
 function sanitizeInput($data) {
     global $conn;
-    $data = trim($data);
+    $data = trim((string)($data ?? ''));
     $data = stripslashes($data);
-    $data = phpspecialchars($data);
-    $data = $conn->real_escape_string($data);
+    $data = htmlspecialchars($data, ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8');
+
+    // If DB connection exists, escape for SQL too.
+    if ($conn instanceof mysqli) {
+        $data = $conn->real_escape_string($data);
+    }
+
     return $data;
 }
 ?>

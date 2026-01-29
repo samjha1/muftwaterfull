@@ -5,6 +5,13 @@ require_once 'db.php';
 // Set response header for JSON
 header('Content-Type: application/json');
 
+// Fail fast if DB is unavailable (db.php is intentionally silent)
+if (!($conn instanceof mysqli)) {
+    http_response_code(500);
+    echo json_encode(['success' => false, 'message' => isset($db_error) ? $db_error : 'Database connection unavailable']);
+    exit;
+}
+
 // Check if request is POST
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     http_response_code(405);
@@ -55,6 +62,26 @@ $businessType = sanitizeInput($businessType);
 $advertise = sanitizeInput($advertise);
 $budget = sanitizeInput($budget);
 $message = sanitizeInput($message);
+
+// Create table if it doesn't exist (moved here from db.php to avoid side-effects)
+$createTableSQL = "CREATE TABLE IF NOT EXISTS quote_requests (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    full_name VARCHAR(100) NOT NULL,
+    email VARCHAR(100) NOT NULL,
+    phone VARCHAR(20),
+    company VARCHAR(100) NOT NULL,
+    business_type VARCHAR(50),
+    advertise TEXT,
+    budget VARCHAR(20),
+    message TEXT,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+)";
+
+if (!$conn->query($createTableSQL)) {
+    http_response_code(500);
+    echo json_encode(['success' => false, 'message' => 'Database error: ' . $conn->error]);
+    exit;
+}
 
 // Prepare SQL statement
 $stmt = $conn->prepare("INSERT INTO quote_requests (full_name, email, phone, company, business_type, advertise, budget, message) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");

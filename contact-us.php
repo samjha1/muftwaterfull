@@ -1,5 +1,5 @@
-<!DOCTYPE php>
-<php lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -126,7 +126,7 @@
             <ul class="nav-links">
                 <li><a href="index.php#home">Home</a></li>
                 <li><a href="distribute.php">Distribute</a></li>
-                                <li><a href="index.php#impact">Impact</a></li>
+                <li><a href="index.php#impact">Impact</a></li>
                 <li><a href="advertise.php">Advertise</a></li>
                 <li><a href="contact-us.php" class="active">Contact</a></li>
             </ul>
@@ -262,14 +262,22 @@
                     body: formData
                 });
 
-                const result = await response.json();
+                // Some PHP errors can return HTML/text and break JSON parsing.
+                // Read as text first, then parse JSON if possible.
+                const raw = await response.text();
+                let result = null;
+                try {
+                    result = raw ? JSON.parse(raw) : null;
+                } catch (_) {
+                    result = null;
+                }
 
                 if (response.ok && result.success) {
                     document.getElementById('successModal').classList.add('active');
                     document.body.style.overflow = 'hidden';
                     form.reset();
                 } else {
-                    const msg = result && result.message ? result.message : 'An error occurred while submitting your message.';
+                    const msg = result && result.message ? result.message : (raw || 'An error occurred while submitting your message.');
                     alert(msg);
                     if (result && result.errors) {
                         alert(result.errors.join('\n'));
@@ -282,5 +290,5 @@
         });
     </script>
 </body>
-</php>
+</html>
 
