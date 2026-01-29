@@ -8,8 +8,11 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+
 </head>
 <body>
+    
     <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-container">
@@ -27,7 +30,7 @@
                 <li><a href="distribute.php">Distribute</a></li>
                 <li><a href="contact-us.php">Contact</a></li>
             </ul>
-            <a href="#subscribe" class="nav-cta">Get a quote</a>
+            <a href="index.php#subscribe" class="nav-cta">Get a Quote</a>
             <button class="mobile-menu-btn" aria-label="Toggle menu">
                 <span></span>
                 <span></span>
@@ -255,7 +258,7 @@
             <div class="impact-content">
                 <div class="impact-card">
                     <div class="impact-icon">
-                        <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=100&h=100&fit=crop" alt="High Footfall Public Location">
+                        <img src="https://www.tgogc.com/userfiles/images/Products/Water%20Bottle%20Filling%20Station/Water%20Bottle%20Filling%20Station%203.jpg" alt="High Footfall Public Location">
                     </div>
                     <div class="impact-number"></div>
                     <div class="impact-text">
@@ -265,7 +268,7 @@
                 </div>
                 <div class="impact-card">
                     <div class="impact-icon">
-<img src="https://images.unsplash.com/photo-1520975916090-3105956dac38?auto=format&fit=crop&w=100&h=100&q=80" alt="Branding on Bottles and Kiosks">
+                    <img src="https://images.pixeden.com/images/plastic-psd-water-bottle-mockup_full_preview_retina.jpg" alt="Branding on Bottles and Kiosks">
                     </div>
                     <div class="impact-number"></div>
                     <div class="impact-text">
@@ -275,7 +278,7 @@
                 </div>
                 <div class="impact-card">
                     <div class="impact-icon">
-<img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?w=100&h=100&fit=crop" alt="Mobile App Engagement">
+                    <img src="https://cdn.vectorstock.com/i/1000v/21/55/man-scanning-qr-code-with-mobile-phone-vector-43292155.jpg" alt="Mobile App Engagement">
                     </div>
                     <div class="impact-number"></div>
                     <div class="impact-text">
@@ -285,7 +288,7 @@
                 </div>
                 <div class="impact-card">
                     <div class="impact-icon">
-<img src="https://images.unsplash.com/photo-1543286386-713bdd548da4?w=100&h=100&fit=crop" alt="Data Reports and Growth">
+                    <img src="https://ik.imagekit.io/edtechdigit/usdsi/content/images/articles/business-growth01-in.jpg" alt="Data Reports and Growth">
                     </div>
                      <div class="impact-number"></div>
                     <div class="impact-text">

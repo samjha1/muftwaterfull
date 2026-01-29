@@ -1,40 +1,67 @@
 <?php
-// Include database connection
-require_once 'db.php';
+// ===============================
+// DEBUG (remove in production)
+// ===============================
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 
-// Set response header for JSON
+// ===============================
+// HEADERS
+// ===============================
 header('Content-Type: application/json');
 
-// Fail fast if DB is unavailable (db.php is intentionally silent)
-if (!($conn instanceof mysqli)) {
+// ===============================
+// DB CONNECTION
+// ===============================
+require_once 'db.php';
+
+if (!isset($conn) || !($conn instanceof mysqli) || $conn->connect_error) {
     http_response_code(500);
-    echo json_encode(['success' => false, 'message' => isset($db_error) ? $db_error : 'Database connection unavailable']);
+    echo json_encode([
+        'success' => false,
+        'message' => 'Database connection unavailable'
+    ]);
     exit;
 }
 
-// Check if request is POST
+// ===============================
+// HELPER FUNCTION
+// ===============================
+function sanitizeInput($data) {
+    return htmlspecialchars(trim($data), ENT_QUOTES, 'UTF-8');
+}
+
+// ===============================
+// METHOD CHECK
+// ===============================
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     http_response_code(405);
-    echo json_encode(['success' => false, 'message' => 'Method not allowed']);
+    echo json_encode([
+        'success' => false,
+        'message' => 'Method not allowed'
+    ]);
     exit;
 }
 
-// Get form data
-$fullName = isset($_POST['fullName']) ? $_POST['fullName'] : '';
-$email = isset($_POST['email']) ? $_POST['email'] : '';
-$phone = isset($_POST['phone']) ? $_POST['phone'] : '';
-$company = isset($_POST['company']) ? $_POST['company'] : '';
-$businessType = isset($_POST['businessType']) ? $_POST['businessType'] : '';
-$advertise = isset($_POST['advertise']) ? $_POST['advertise'] : '';
-$budget = isset($_POST['budget']) ? $_POST['budget'] : '';
-$message = isset($_POST['message']) ? $_POST['message'] : '';
+// ===============================
+// GET INPUTS
+// ===============================
+$fullName     = sanitizeInput($_POST['fullName'] ?? '');
+$email        = sanitizeInput($_POST['email'] ?? '');
+$phone        = sanitizeInput($_POST['phone'] ?? '');
+$company      = sanitizeInput($_POST['company'] ?? '');
+$businessType = sanitizeInput($_POST['businessType'] ?? '');
+$advertise    = sanitizeInput($_POST['advertise'] ?? '');
+$budget       = sanitizeInput($_POST['budget'] ?? '');
+$message      = sanitizeInput($_POST['message'] ?? '');
 
-// Validate required fields
+// ===============================
+// VALIDATION
+// ===============================
 $errors = [];
 
-if (empty($fullName)) {
-    $errors[] = 'Full name is required';
-}
+if (empty($fullName)) $errors[] = 'Full name is required';
 
 if (empty($email)) {
     $errors[] = 'Email is required';
@@ -42,29 +69,23 @@ if (empty($email)) {
     $errors[] = 'Invalid email format';
 }
 
-if (empty($company)) {
-    $errors[] = 'Company name is required';
-}
+if (empty($company)) $errors[] = 'Company name is required';
 
-// If there are validation errors, return them
 if (!empty($errors)) {
     http_response_code(400);
-    echo json_encode(['success' => false, 'message' => 'Validation errors', 'errors' => $errors]);
+    echo json_encode([
+        'success' => false,
+        'message' => 'Validation errors',
+        'errors' => $errors
+    ]);
     exit;
 }
 
-// Sanitize inputs
-$fullName = sanitizeInput($fullName);
-$email = sanitizeInput($email);
-$phone = sanitizeInput($phone);
-$company = sanitizeInput($company);
-$businessType = sanitizeInput($businessType);
-$advertise = sanitizeInput($advertise);
-$budget = sanitizeInput($budget);
-$message = sanitizeInput($message);
-
-// Create table if it doesn't exist (moved here from db.php to avoid side-effects)
-$createTableSQL = "CREATE TABLE IF NOT EXISTS quote_requests (
+// ===============================
+// CREATE TABLE
+// ===============================
+$createTableSQL = "
+CREATE TABLE IF NOT EXISTS quote_requests (
     id INT AUTO_INCREMENT PRIMARY KEY,
     full_name VARCHAR(100) NOT NULL,
     email VARCHAR(100) NOT NULL,
@@ -79,33 +100,64 @@ $createTableSQL = "CREATE TABLE IF NOT EXISTS quote_requests (
 
 if (!$conn->query($createTableSQL)) {
     http_response_code(500);
-    echo json_encode(['success' => false, 'message' => 'Database error: ' . $conn->error]);
+    echo json_encode([
+        'success' => false,
+        'message' => 'Table creation failed',
+        'error' => $conn->error
+    ]);
     exit;
 }
 
-// Prepare SQL statement
-$stmt = $conn->prepare("INSERT INTO quote_requests (full_name, email, phone, company, business_type, advertise, budget, message) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
+// ===============================
+// INSERT DATA
+// ===============================
+$stmt = $conn->prepare("
+    INSERT INTO quote_requests
+    (full_name, email, phone, company, business_type, advertise, budget, message)
+    VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+");
 
-if ($stmt === false) {
+if (!$stmt) {
     http_response_code(500);
-    echo json_encode(['success' => false, 'message' => 'Database error: ' . $conn->error]);
+    echo json_encode([
+        'success' => false,
+        'message' => 'Prepare failed',
+        'error' => $conn->error
+    ]);
     exit;
 }
 
-// Bind parameters
-$stmt->bind_param("ssssssss", $fullName, $email, $phone, $company, $businessType, $advertise, $budget, $message);
+$stmt->bind_param(
+    "ssssssss",
+    $fullName,
+    $email,
+    $phone,
+    $company,
+    $businessType,
+    $advertise,
+    $budget,
+    $message
+);
 
-// Execute the statement
+// ===============================
+// EXECUTE
+// ===============================
 if ($stmt->execute()) {
-    // Success
-    echo json_encode(['success' => true, 'message' => 'Quote request submitted successfully']);
+    echo json_encode([
+        'success' => true,
+        'message' => 'Quote request submitted successfully'
+    ]);
 } else {
-    // Error occurred
     http_response_code(500);
-    echo json_encode(['success' => false, 'message' => 'Error submitting quote request: ' . $stmt->error]);
+    echo json_encode([
+        'success' => false,
+        'message' => 'Insert failed',
+        'error' => $stmt->error
+    ]);
 }
 
-// Close statement and connection
+// ===============================
+// CLEANUP
+// ===============================
 $stmt->close();
 $conn->close();
-?>

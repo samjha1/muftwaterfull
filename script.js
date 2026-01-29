@@ -363,8 +363,8 @@ function initMobileMenu() {
         mobileMenu.innerHTML = `
             <ul>
                 <li><a href="index.php#home">Home</a></li>
+                 <li><a href="advertise.php">Advertise</a></li>
                 <li><a href="index.php#impact">Impact</a></li>
-                <li><a href="index.php#advertise">Advertise</a></li>
                 <li><a href="distribute.php">Distribute</a></li>
                 <li><a href="contact-us.php">Contact</a></li>
                 <li><a href="index.php#subscribe" class="mobile-cta">Get a quote</a></li>
@@ -558,28 +558,33 @@ function initMobileMenu() {
  */
 function initSmoothScroll() {
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
+        anchor.addEventListener('click', function (e) {
             const href = this.getAttribute('href');
-            
-            // Skip if it's just "#"
-            if (href === '#') return;
-            
+
+            // ✅ only handle PURE hash links like "#advertise"
+            if (!href || href === '#' || !href.startsWith('#')) return;
+
             const target = document.querySelector(href);
-            
-            if (target) {
-                e.preventDefault();
-                
-                const navbarHeight = document.querySelector('.navbar').offsetHeight;
-                const targetPosition = target.getBoundingClientRect().top + window.scrollY - navbarHeight;
-                
-                window.scrollTo({
-                    top: targetPosition,
-                    behavior: 'smooth'
-                });
-            }
+            if (!target) return;
+
+            e.preventDefault();
+
+            const navbar = document.querySelector('.navbar');
+            const navbarHeight = navbar ? navbar.offsetHeight : 0;
+
+            const targetPosition =
+                target.getBoundingClientRect().top +
+                window.scrollY -
+                navbarHeight;
+
+            window.scrollTo({
+                top: targetPosition,
+                behavior: 'smooth'
+            });
         });
     });
 }
+
 
 /**
  * Parallax effect for hero section

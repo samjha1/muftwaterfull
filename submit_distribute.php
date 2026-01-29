@@ -1,51 +1,76 @@
 <?php
-// Include database connection
-require_once 'db.php';
+// ===============================
+// DEBUG (remove in production)
+// ===============================
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 
-// Set response header for JSON
+// ===============================
+// HEADERS
+// ===============================
 header('Content-Type: application/json');
 
-// Fail fast if DB is unavailable (db.php is intentionally silent)
-if (!($conn instanceof mysqli)) {
+// ===============================
+// DB CONNECTION
+// ===============================
+require_once 'db.php';
+
+// Fail fast if DB connection failed
+if (!isset($conn) || !($conn instanceof mysqli) || $conn->connect_error) {
     http_response_code(500);
-    echo json_encode(['success' => false, 'message' => isset($db_error) ? $db_error : 'Database connection unavailable']);
+    echo json_encode([
+        'success' => false,
+        'message' => 'Database connection failed'
+    ]);
     exit;
 }
 
-// Check if request is POST
+// ===============================
+// HELPER FUNCTION
+// ===============================
+function sanitizeInput($data) {
+    return htmlspecialchars(trim($data), ENT_QUOTES, 'UTF-8');
+}
+
+// ===============================
+// REQUEST METHOD CHECK
+// ===============================
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     http_response_code(405);
-    echo json_encode(['success' => false, 'message' => 'Method not allowed']);
+    echo json_encode([
+        'success' => false,
+        'message' => 'Method not allowed'
+    ]);
     exit;
 }
 
-// Get form data
-$firstName = isset($_POST['firstName']) ? $_POST['firstName'] : '';
-$lastName = isset($_POST['lastName']) ? $_POST['lastName'] : '';
-$email = isset($_POST['email']) ? $_POST['email'] : '';
-$phone = isset($_POST['phone']) ? $_POST['phone'] : '';
-$company = isset($_POST['company']) ? $_POST['company'] : '';
-$businessType = isset($_POST['businessType']) ? $_POST['businessType'] : '';
-$isEvent = isset($_POST['isEvent']) ? $_POST['isEvent'] : '';
-$distributionAddress = isset($_POST['distributionAddress']) ? $_POST['distributionAddress'] : '';
-$shippingAddress = isset($_POST['shippingAddress']) ? $_POST['shippingAddress'] : '';
-$footTraffic = isset($_POST['footTraffic']) ? $_POST['footTraffic'] : '';
-$ageRange = isset($_POST['ageRange']) ? $_POST['ageRange'] : '';
-$monthlyVolume = isset($_POST['monthlyVolume']) ? $_POST['monthlyVolume'] : '';
-$loadingDock = isset($_POST['loadingDock']) ? $_POST['loadingDock'] : '';
-$whyDistribute = isset($_POST['whyDistribute']) ? $_POST['whyDistribute'] : '';
+// ===============================
+// GET & SANITIZE INPUTS
+// ===============================
+$firstName = sanitizeInput($_POST['firstName'] ?? '');
+$lastName = sanitizeInput($_POST['lastName'] ?? '');
+$email = sanitizeInput($_POST['email'] ?? '');
+$phone = sanitizeInput($_POST['phone'] ?? '');
+$company = sanitizeInput($_POST['company'] ?? '');
+$businessType = sanitizeInput($_POST['businessType'] ?? '');
+$isEvent = sanitizeInput($_POST['isEvent'] ?? '');
+$distributionAddress = sanitizeInput($_POST['distributionAddress'] ?? '');
+$shippingAddress = sanitizeInput($_POST['shippingAddress'] ?? '');
+$footTraffic = sanitizeInput($_POST['footTraffic'] ?? '');
+$ageRange = sanitizeInput($_POST['ageRange'] ?? '');
+$monthlyVolume = sanitizeInput($_POST['monthlyVolume'] ?? '');
+$loadingDock = sanitizeInput($_POST['loadingDock'] ?? '');
+$whyDistribute = sanitizeInput($_POST['whyDistribute'] ?? '');
 $shareWithAdvertisers = isset($_POST['shareWithAdvertisers']) ? 'yes' : 'no';
 
-// Validate required fields
+// ===============================
+// VALIDATION
+// ===============================
 $errors = [];
 
-if (empty($firstName)) {
-    $errors[] = 'First name is required';
-}
-
-if (empty($lastName)) {
-    $errors[] = 'Last name is required';
-}
+if (empty($firstName)) $errors[] = 'First name is required';
+if (empty($lastName)) $errors[] = 'Last name is required';
 
 if (empty($email)) {
     $errors[] = 'Email is required';
@@ -53,31 +78,21 @@ if (empty($email)) {
     $errors[] = 'Invalid email format';
 }
 
-// If there are validation errors, return them
 if (!empty($errors)) {
     http_response_code(400);
-    echo json_encode(['success' => false, 'message' => 'Validation errors', 'errors' => $errors]);
+    echo json_encode([
+        'success' => false,
+        'message' => 'Validation failed',
+        'errors' => $errors
+    ]);
     exit;
 }
 
-// Sanitize inputs
-$firstName = sanitizeInput($firstName);
-$lastName = sanitizeInput($lastName);
-$email = sanitizeInput($email);
-$phone = sanitizeInput($phone);
-$company = sanitizeInput($company);
-$businessType = sanitizeInput($businessType);
-$isEvent = sanitizeInput($isEvent);
-$distributionAddress = sanitizeInput($distributionAddress);
-$shippingAddress = sanitizeInput($shippingAddress);
-$footTraffic = sanitizeInput($footTraffic);
-$ageRange = sanitizeInput($ageRange);
-$monthlyVolume = sanitizeInput($monthlyVolume);
-$loadingDock = sanitizeInput($loadingDock);
-$whyDistribute = sanitizeInput($whyDistribute);
-
-// Create table if it doesn't exist
-$createTableSQL = "CREATE TABLE IF NOT EXISTS distribute_requests (
+// ===============================
+// CREATE TABLE IF NOT EXISTS
+// ===============================
+$createTableSQL = "
+CREATE TABLE IF NOT EXISTS distribute_requests (
     id INT AUTO_INCREMENT PRIMARY KEY,
     first_name VARCHAR(100) NOT NULL,
     last_name VARCHAR(100) NOT NULL,
@@ -99,33 +114,75 @@ $createTableSQL = "CREATE TABLE IF NOT EXISTS distribute_requests (
 
 if (!$conn->query($createTableSQL)) {
     http_response_code(500);
-    echo json_encode(['success' => false, 'message' => 'Database error: ' . $conn->error]);
+    echo json_encode([
+        'success' => false,
+        'message' => 'Table creation failed',
+        'error' => $conn->error
+    ]);
     exit;
 }
 
-// Prepare SQL statement
-$stmt = $conn->prepare("INSERT INTO distribute_requests (first_name, last_name, email, phone, company, business_type, is_event, distribution_address, shipping_address, foot_traffic, age_range, monthly_volume, loading_dock, why_distribute, share_with_advertisers) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+// ===============================
+// INSERT DATA
+// ===============================
+$stmt = $conn->prepare("
+    INSERT INTO distribute_requests (
+        first_name, last_name, email, phone, company, business_type,
+        is_event, distribution_address, shipping_address,
+        foot_traffic, age_range, monthly_volume,
+        loading_dock, why_distribute, share_with_advertisers
+    )
+    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+");
 
-if ($stmt === false) {
+if (!$stmt) {
     http_response_code(500);
-    echo json_encode(['success' => false, 'message' => 'Database error: ' . $conn->error]);
+    echo json_encode([
+        'success' => false,
+        'message' => 'Prepare failed',
+        'error' => $conn->error
+    ]);
     exit;
 }
 
-// Bind parameters
-$stmt->bind_param("sssssssssssssss", $firstName, $lastName, $email, $phone, $company, $businessType, $isEvent, $distributionAddress, $shippingAddress, $footTraffic, $ageRange, $monthlyVolume, $loadingDock, $whyDistribute, $shareWithAdvertisers);
+$stmt->bind_param(
+    "sssssssssssssss",
+    $firstName,
+    $lastName,
+    $email,
+    $phone,
+    $company,
+    $businessType,
+    $isEvent,
+    $distributionAddress,
+    $shippingAddress,
+    $footTraffic,
+    $ageRange,
+    $monthlyVolume,
+    $loadingDock,
+    $whyDistribute,
+    $shareWithAdvertisers
+);
 
-// Execute the statement
+// ===============================
+// EXECUTE
+// ===============================
 if ($stmt->execute()) {
-    // Success
-    echo json_encode(['success' => true, 'message' => 'Distribution request submitted successfully']);
+    echo json_encode([
+        'success' => true,
+        'message' => 'Distribution request submitted successfully'
+    ]);
 } else {
-    // Error occurred
     http_response_code(500);
-    echo json_encode(['success' => false, 'message' => 'Error submitting distribution request: ' . $stmt->error]);
+    echo json_encode([
+        'success' => false,
+        'message' => 'Insert failed',
+        'error' => $stmt->error
+    ]);
 }
 
-// Close statement and connection
+// ===============================
+// CLEANUP
+// ===============================
 $stmt->close();
 $conn->close();
-?>

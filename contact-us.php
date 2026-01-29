@@ -127,10 +127,10 @@
                 <li><a href="index.php#home">Home</a></li>
                 <li><a href="advertise.php">Advertise</a></li>
                 <li><a href="index.php#impact">Impact</a></li>
-                li><a href="distribute.php">Distribute</a></li>
+                <li><a href="distribute.php">Distribute</a></li>
                 <li><a href="contact-us.php" class="active">Contact</a></li>
             </ul>
-            <a href="index.php#subscribe" class="nav-cta">Get a quote</a>
+            <a href="index.php#subscribe" class="nav-cta">Get a Quote</a>
             <button class="mobile-menu-btn" aria-label="Toggle menu">
                 <span></span>
                 <span></span>
