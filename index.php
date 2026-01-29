@@ -457,7 +457,7 @@
                 </div>
                 <div class="advertise-visual">
                     <div class="advertise-image">
-                        <img src="assets/images/maxresdefault.jpg" 
+                        <img src="assets/images/WhatsApp Image 2026-01-28 at 2.18.14 PM.jpeg" 
                              alt="Place Your Ad Here - Water Bottle Advertising"
                              class="advertise-main-image">
                     </div>

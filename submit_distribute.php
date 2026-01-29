@@ -5,6 +5,13 @@ require_once 'db.php';
 // Set response header for JSON
 header('Content-Type: application/json');
 
+// Fail fast if DB is unavailable (db.php is intentionally silent)
+if (!($conn instanceof mysqli)) {
+    http_response_code(500);
+    echo json_encode(['success' => false, 'message' => isset($db_error) ? $db_error : 'Database connection unavailable']);
+    exit;
+}
+
 // Check if request is POST
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     http_response_code(405);

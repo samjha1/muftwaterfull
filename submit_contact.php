@@ -5,6 +5,13 @@ require_once 'db.php';
 // Set response header for JSON
 header('Content-Type: application/json');
 
+// Fail fast if DB is unavailable (db.php is intentionally silent)
+if (!($conn instanceof mysqli)) {
+    http_response_code(500);
+    echo json_encode(['success' => false, 'message' => isset($db_error) ? $db_error : 'Database connection unavailable']);
+    exit;
+}
+
 // Check if request is POST
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     http_response_code(405);
@@ -53,12 +60,18 @@ if (!empty($errors)) {
 }
 
 // Sanitize inputs
-$firstName = sanitizeInput($firstName);
-$lastName = sanitizeInput($lastName);
-$email = sanitizeInput($email);
-$phone = sanitizeInput($phone);
-$subject = sanitizeInput($subject);
-$message = sanitizeInput($message);
+// $firstName = sanitizeInput($firstName);
+// $lastName = sanitizeInput($lastName);
+// $email = sanitizeInput($email);
+// $phone = sanitizeInput($phone);
+// $subject = sanitizeInput($subject);
+// $message = sanitizeInput($message);
+$firstName = htmlspecialchars(trim($firstName));
+$lastName  = htmlspecialchars(trim($lastName));
+$email     = htmlspecialchars(trim($email));
+$phone     = htmlspecialchars(trim($phone));
+$subject   = htmlspecialchars(trim($subject));
+$message   = htmlspecialchars(trim($message));
 
 // Create table if it doesn't exist
 $createTableSQL = "CREATE TABLE IF NOT EXISTS contact_requests (
