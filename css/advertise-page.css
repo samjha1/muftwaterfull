@@ -611,11 +611,20 @@
         grid-template-columns: 1fr;
         text-align: center;
     }
-    
-    .adv-hero-image {
+    .adv-hero-content {
+        /* show text first on mobile */
+        order: 1;
+    }
+    /* .adv-hero-image {
         order: -1;
         max-width: 500px;
         margin: 0 auto;
+    } */
+    .adv-hero-image {
+        /* show image second on tablet/mobile */
+        order: 2;
+        max-width: 500px;
+        margin: var(--space-xl) auto 0;
     }
     
     .why-content {
