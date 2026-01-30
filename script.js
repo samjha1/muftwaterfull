@@ -623,4 +623,3 @@ window.addEventListener('load', () => {
         }, index * 100);
     });
 });
-
