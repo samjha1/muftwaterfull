@@ -233,7 +233,7 @@
 </section>
 
 
-    <!-- Testimonials -->
+     <!-- Testimonials
     <section class="adv-testimonials">
         <div class="container">
             <div class="section-header center">
@@ -278,7 +278,70 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
+<!-- Testimonials -->
+<section class="adv-testimonials">
+    <div class="container">
+        <div class="section-header center">
+            <h2 class="section-title">Success Stories from Our Brand Partners</h2>
+        </div>
+
+        <div class="testimonials-slider">
+
+            <!-- Testimonial 1 -->
+            <div class="testimonial-slide">
+                <div class="testimonial-content">
+                    <p>
+                        "Muftwater helped us connect with over 40,000 people during our annual tech event. The branded water bottles were practical, memorable, and highly appreciated."
+                    </p>
+                </div>
+                <div class="testimonial-author">
+<img src="https://images.unsplash.com/photo-1600878459138-e1123b37cb30?w=80&h=80&fit=crop&crop=faces" 
+     alt="Sandeep Malhotra - Founder & CEO, TechNova Solutions">
+                    <div>
+                        <h4>Sandeep Malhotra</h4>
+                        <span>Founder & CEO, TechNova Solutions</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Testimonial 2 (Active) -->
+            <div class="testimonial-slide active">
+                <div class="testimonial-content">
+                    <p>
+                        "The return on investment was impressive. Our customers loved the idea of free drinking water combined with a meaningful social initiative."
+                    </p>
+                </div>
+                <div class="testimonial-author">
+<img src="https://images.unsplash.com/photo-1586297135537-94bc9ba060aa?w=80&h=80&fit=crop&crop=faces"
+     alt="Priya Nair - Indian startup leader">
+                    <div>
+                        <h4>Priya Nair</h4>
+                        <span>Marketing Head, GreenLife India</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Testimonial 3 -->
+            <div class="testimonial-slide">
+                <div class="testimonial-content">
+                    <p>
+                        "We’ve explored digital ads and outdoor branding, but Muftwater gave us something unique — real engagement and positive brand recall."
+                    </p>
+                </div>
+                <div class="testimonial-author">
+<img src="https://images.unsplash.com/photo-1600180758890-6b94519a8ba6?w=80&h=80&fit=crop&crop=faces" 
+     alt="Rahul Mehta - Brand Manager, FreshKart Foods">
+                    <div>
+                        <h4>Rahul Mehta</h4>
+                        <span>Brand Manager, FreshKart Foods</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
 
     <!-- Quote Form Section -->
     <section id="quote" class="quote-section">
@@ -354,12 +417,17 @@
                             <label for="budget">What is your budget?</label>
                             <select id="budget" name="budget">
                                 <option value="">Select...</option>
-                                <option value="under5k">Under $5,000</option>
-                                <option value="5k-10k">$5,000 - $10,000</option>
+                                 <!-- <option value="under5k">Under ₹5,000</option>
+                                <option value="5k-10k">₹5,000 - $10,000</option>
                                 <option value="10k-25k">$10,000 - $25,000</option>
                                 <option value="25k-50k">$25,000 - $50,000</option>
-                                <option value="50k+">$50,000+</option>
-                            </select>
+                                <option value="50k+">$50,000+</option> -->
+                                <option value="under5k">Under – ₹5,000</option>
+                                <option value="5k-10k">₹5,000 – ₹10,000</option>
+                                <option value="10k-25k">₹10,000 – ₹25,000</option>
+                                <option value="25k-50k">₹25,000 – ₹50,000</option>
+                                <option value="50k+">₹50,000+</option>
+</select>           
                         </div>
                         <div class="form-group">
                             <label for="message">Message</label>
@@ -429,4 +497,3 @@
 </body>
 <!-- </php> -->
 </html>
-

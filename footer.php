@@ -42,16 +42,16 @@
           <h4>Company</h4>
           <ul>
             <li><a href="#about">About Muftwater</a></li>
-            <li><a href="#impact">Our Impact</a></li>
+            <li><a href="index.php#impact">Our Impact</a></li>
             <li><a href="#locations">Water Locations</a></li>
-            <li><a href="#careers">Careers</a></li>
+            <li><a href="careers.php">Careers</a></li>
           </ul>
         </div>
 
         <div class="footer-column">
           <h4>Get Involved</h4>
           <ul>
-            <li><a href="#subscribe">Get a Quote</a></li>
+            <li><a href="distribute.php">Get a Quote</a></li>
             <li><a href="advertise.php">Advertise With Us</a></li>
             <li><a href="distribute.php">Distribute Water</a></li>
             <li><a href="#partner">Partner With Us</a></li>

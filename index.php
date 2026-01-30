@@ -373,7 +373,7 @@
         </div>
     </section>
 
-    <!-- Testimonials Section -->
+ <!-- Testimonials Section
     <section class="testimonials">
         <div class="container">
             <div class="section-header center">
@@ -386,7 +386,7 @@
                         <p>"Muftwater has completely changed how I think about hydration. Free premium water AND making a difference? It's a no-brainer."</p>
                     </div>
                     <div class="testimonial-author">
-                        <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=80&h=80&fit=crop&crop=face" alt="Sarah Johnson">
+<img src="https://images.unsplash.com/photo-1614280794587-68e07a0b8b8b?w=80&h=80&fit=crop&crop=face" alt="Indian woman">
                         <div>
                             <h4>Sarah Johnson</h4>
                             <span>Fitness Enthusiast</span>
@@ -398,7 +398,7 @@
                         <p>"As a brand partner, we've seen incredible engagement. Our logo on Muftwater bottles connects us with conscious consumers who care about impact."</p>
                     </div>
                     <div class="testimonial-author">
-                        <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=80&h=80&fit=crop&crop=face" alt="Michael Chen">
+                            <img src="https://images.unsplash.com/photo-1603415526960-f7e0328c63b1?w=80&h=80&fit=crop&crop=face" alt="Indian man">
                         <div>
                             <h4>Michael Chen</h4>
                             <span>Marketing Director, TechCorp</span>
@@ -419,7 +419,71 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
+    <!-- Testimonials Section -->
+<section class="testimonials">
+    <div class="container">
+        <div class="section-header center">
+            <span class="section-tag">What People Say</span>
+            <h2 class="section-title">Trusted by People Across India</h2>
+        </div>
+
+        <div class="testimonials-grid">
+
+            <!-- Testimonial 1 -->
+            <div class="testimonial-card">
+                <div class="testimonial-content">
+                    <p>
+                        "Muftwater is a brilliant idea. Clean drinking water at no cost, while also supporting social causes — this is exactly the kind of initiative India needs."
+                    </p>
+                </div>
+                <div class="testimonial-author">
+                    <img src="https://images.unsplash.com/photo-1607746882042-944635dfe10e?w=80&h=80&fit=crop&crop=faces" alt="Ananya Sharma">
+                    <div>
+                        <h4>Ananya Sharma</h4>
+                        <span>Fitness Coach, Mumbai</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Testimonial 2 (Featured) -->
+            <div class="testimonial-card featured">
+                <div class="testimonial-content">
+                    <p>
+                        "Partnering with Muftwater gave our brand meaningful visibility. Customers appreciate brands that care about sustainability and social impact."
+                    </p>
+                </div>
+                <div class="testimonial-author">
+                    <img src="https://images.unsplash.com/photo-1607346256330-dee7af15f7c5?w=80&h=80&fit=crop&crop=faces" alt="Rohit Verma">
+                    <div>
+                        <h4>Rohit Verma</h4>
+                        <span>Brand Manager, Bengaluru</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Testimonial 3 -->
+            <div class="testimonial-card">
+                <div class="testimonial-content">
+                    <p>
+                        "The water quality is excellent, and the mission behind Muftwater makes every bottle special. It feels good to support something that truly helps."
+                    </p>
+                </div>
+                <div class="testimonial-author">
+                    <img src="https://images.unsplash.com/photo-1595152772835-219674b2a8a6?w=80&h=80&fit=crop&crop=faces" alt="Neha Patel">
+                    <div>
+                        <!-- <h4>Neha Patel</h4>
+                        <span>Social Worker, Ahmedabad</span> -->
+                         <h4>Amit Patel</h4>
+                        <span>Community Volunteer, Ahmedabad</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
 
     <!-- Advertise Section -->
     <section id="advertise" class="advertise">
@@ -503,8 +567,7 @@
                 </div>
                 <div class="subscribe-visual">
                     <img src="assets/images/sam1.png" 
-                         alt="Water bottles"
-                         class="subscribe-image">
+                        class="subscribe-image">
                 </div>
             </div>
         </div>
@@ -540,6 +603,7 @@
           document.getElementById("footer").innerHTML = html;
         });
     </script>
+    
 
     <script src="script.js"></script>
 </body>
